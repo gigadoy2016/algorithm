@@ -1,0 +1,34 @@
+<html>
+<head>
+	<script>
+		var num = [8,3,6,2,9,5,1,7];
+		var newA = [];
+		function find(){
+			sort(num,0);
+			document.getElementById("result").innerHTML = newA;
+		}
+		function sort(num,index){
+			// find mininium number
+			let st = num[index];
+			let min;
+			for(let i=0;i < num.length;i++){
+				if(st > num[i]){
+					st = num[i];
+					index = i;
+				}
+			}
+			num.splice(index, 1);
+			newA.push(st);
+
+			if(num.length>0){
+				sort(num,0);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>[8,3,6,2,9,5,1,7]</div>
+	<div><button onclick="find();">find</button></div>
+	<div>ผลลัพท์ :<div id="result"></div></div>
+</body>
+</html>
